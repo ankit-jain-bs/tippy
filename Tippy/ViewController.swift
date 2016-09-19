@@ -15,6 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    func getDefaultSegment() -> Int {
+        return defaults.integerForKey("defaultSegment")
+    }
+    
+    func updateDefaultSegment() {
+        let defaultSegment = getDefaultSegment()
+        tipControl.selectedSegmentIndex = defaultSegment
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         billField.becomeFirstResponder()
@@ -24,6 +35,11 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updateDefaultSegment()
     }
 
     @IBAction func onTap(sender: AnyObject) {
@@ -37,8 +53,11 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        
+        tipLabel.text = formatter.stringFromNumber(tip)
+        totalLabel.text = formatter.stringFromNumber(total)
     }
 }
 

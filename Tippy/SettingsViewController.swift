@@ -9,7 +9,23 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+    @IBOutlet weak var tipControl: UISegmentedControl!
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    func setDefaultSegment(index: Int) {
+        defaults.setInteger(index, forKey: "defaultSegment")
+    }
+    
+    func getDefaultSegment() -> Int {
+        return defaults.integerForKey("defaultSegment")
+    }
+    
+    func updateDefaultSegment() {
+        tipControl.selectedSegmentIndex = getDefaultSegment()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +37,14 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updateDefaultSegment()
+    }
+    
+    @IBAction func onButtonClick(sender: AnyObject) {
+        setDefaultSegment(sender.selectedSegmentIndex)
+    }
 
     /*
     // MARK: - Navigation
