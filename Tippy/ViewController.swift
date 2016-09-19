@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var partyOfTwoLabel: UILabel!
+    @IBOutlet weak var partyOfThreeLabel: UILabel!
+    @IBOutlet weak var partyOfFourLabel: UILabel!
+    @IBOutlet weak var partyOfFiveLabel: UILabel!
+    @IBOutlet weak var partyOfSixLabel: UILabel!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -24,6 +29,13 @@ class ViewController: UIViewController {
     func updateDefaultSegment() {
         let defaultSegment = getDefaultSegment()
         tipControl.selectedSegmentIndex = defaultSegment
+    }
+    
+    func formatText(value: Double) -> String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(value)!
     }
     
     override func viewDidLoad() {
@@ -53,12 +65,13 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
-        let formatter = NSNumberFormatter()
-        formatter.locale = NSLocale.currentLocale()
-        formatter.numberStyle = .CurrencyStyle
-        
-        tipLabel.text = formatter.stringFromNumber(tip)
-        totalLabel.text = formatter.stringFromNumber(total)
+        tipLabel.text = formatText(tip)
+        totalLabel.text = formatText(total)
+        partyOfTwoLabel.text = formatText(total / 2)
+        partyOfThreeLabel.text = formatText(total / 3)
+        partyOfFourLabel.text = formatText(total / 4)
+        partyOfFiveLabel.text = formatText(total / 5)
+        partyOfSixLabel.text = formatText(total / 6)
     }
 }
 
