@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         let total = bill + tip
         
         let formatter = NSNumberFormatter()
+        formatter.locale = NSLocale.currentLocale()
         formatter.numberStyle = .CurrencyStyle
         
         tipLabel.text = formatter.stringFromNumber(tip)
