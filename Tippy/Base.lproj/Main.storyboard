@@ -193,6 +193,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Surprise me!"/>
+                                <connections>
+                                    <action selector="onSurpriseMeButtonClick:" destination="L2c-ks-PA5" eventType="touchUpInside" id="U01-PQ-EIh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

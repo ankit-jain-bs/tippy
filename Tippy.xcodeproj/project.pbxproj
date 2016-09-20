@@ -13,6 +13,8 @@
 		4F1CDE641D904B2700DE449B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1CDE631D904B2700DE449B /* Assets.xcassets */; };
 		4F1CDE671D904B2700DE449B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1CDE651D904B2700DE449B /* LaunchScreen.storyboard */; };
 		4F1CDE721D904B2700DE449B /* TippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1CDE711D904B2700DE449B /* TippyTests.swift */; };
+		4F4FF4351D90F2A4004194F0 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FF4341D90F2A4004194F0 /* iOSDevCenters+GIF.swift */; };
+		4F4FF4371D90F2D5004194F0 /* nyan-cat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4F4FF4361D90F2D5004194F0 /* nyan-cat.gif */; };
 		4F7897CC1D905F2D00394A10 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7897CB1D905F2D00394A10 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		4F1CDE6D1D904B2700DE449B /* TippyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TippyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1CDE711D904B2700DE449B /* TippyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippyTests.swift; sourceTree = "<group>"; };
 		4F1CDE731D904B2700DE449B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F4FF4341D90F2A4004194F0 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "iOSDevCenters+GIF.swift"; path = "../iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
+		4F4FF4361D90F2D5004194F0 /* nyan-cat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "nyan-cat.gif"; sourceTree = "<group>"; };
 		4F7897CB1D905F2D00394A10 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,9 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				4F1CDE5C1D904B2700DE449B /* AppDelegate.swift */,
+				4F4FF4341D90F2A4004194F0 /* iOSDevCenters+GIF.swift */,
 				4F1CDE5E1D904B2700DE449B /* ViewController.swift */,
 				4F1CDE601D904B2700DE449B /* Main.storyboard */,
 				4F7897CB1D905F2D00394A10 /* SettingsViewController.swift */,
+				4F4FF4361D90F2D5004194F0 /* nyan-cat.gif */,
 				4F1CDE631D904B2700DE449B /* Assets.xcassets */,
 				4F1CDE651D904B2700DE449B /* LaunchScreen.storyboard */,
 				4F1CDE681D904B2700DE449B /* Info.plist */,
@@ -183,6 +189,7 @@
 				4F1CDE671D904B2700DE449B /* LaunchScreen.storyboard in Resources */,
 				4F1CDE641D904B2700DE449B /* Assets.xcassets in Resources */,
 				4F1CDE621D904B2700DE449B /* Main.storyboard in Resources */,
+				4F4FF4371D90F2D5004194F0 /* nyan-cat.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F1CDE5F1D904B2700DE449B /* ViewController.swift in Sources */,
+				4F4FF4351D90F2A4004194F0 /* iOSDevCenters+GIF.swift in Sources */,
 				4F1CDE5D1D904B2700DE449B /* AppDelegate.swift in Sources */,
 				4F7897CC1D905F2D00394A10 /* SettingsViewController.swift in Sources */,
 			);
