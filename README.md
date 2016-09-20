@@ -4,7 +4,7 @@
 
 Submitted by: **Andy Jiang**
 
-Time spent: **2** hours spent in total (still a WIP!!!)
+Time spent: **4** hours spent in total (still a WIP!!!)
 
 ## User Stories
 
