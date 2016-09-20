@@ -22,6 +22,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Split bill view for up to party sizes of 6
+- [x] Added nyan cat surprise gif
 
 ## Video Walkthrough 
 
