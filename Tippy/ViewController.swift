@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         tipControl.selectedSegmentIndex = defaultSegment
     }
     
+    func getTipPercentage() -> Double {
+        let tipPercentages = [0.18, 0.2, 0.25]
+        return Double(tipPercentages[tipControl.selectedSegmentIndex])
+    }
+    
     func formatText(value: Double) -> String {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
@@ -38,9 +43,49 @@ class ViewController: UIViewController {
         return formatter.stringFromNumber(value)!
     }
     
+    func getBillAmount() -> Double {
+        return defaults.doubleForKey("billAmount")
+    }
+    
+    func setBillAmount(amount: Double) {
+        defaults.setDouble(amount, forKey: "billAmount")
+    }
+    
+    func appWillTerminate() {
+        let date = NSDate().timeIntervalSince1970
+        defaults.setDouble(date, forKey: "dateTerminated")
+        defaults.synchronize()
+    }
+    
+    func wasAppRecentlyActive() -> Bool {
+        let lastActive = defaults.doubleForKey("dateterminated")
+        let now = NSDate().timeIntervalSince1970
+        let duration = now - lastActive
+        if (duration > 600) { return false }
+        return true
+    }
+    
+    func updateFields(bill: Double, tipPercentage: Double) {
+        let tip = bill * tipPercentage
+        let total = bill + tip
+        
+        tipLabel.text = formatText(tip)
+        totalLabel.text = formatText(total)
+        partyOfTwoLabel.text = formatText(total / 2)
+        partyOfThreeLabel.text = formatText(total / 3)
+        partyOfFourLabel.text = formatText(total / 4)
+        partyOfFiveLabel.text = formatText(total / 5)
+        partyOfSixLabel.text = formatText(total / 6)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         billField.becomeFirstResponder()
+        if (wasAppRecentlyActive()) {
+            let billAmount = getBillAmount()
+            billField.text = String(billAmount)
+            updateFields(billAmount, tipPercentage: getTipPercentage())
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -60,18 +105,10 @@ class ViewController: UIViewController {
     
     @IBAction func calculateTip(sender: AnyObject) {
         let tipPercentages = [0.18, 0.2, 0.25]
-        
         let bill = Double(billField.text!) ?? 0
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
-        let total = bill + tip
+        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
-        tipLabel.text = formatText(tip)
-        totalLabel.text = formatText(total)
-        partyOfTwoLabel.text = formatText(total / 2)
-        partyOfThreeLabel.text = formatText(total / 3)
-        partyOfFourLabel.text = formatText(total / 4)
-        partyOfFiveLabel.text = formatText(total / 5)
-        partyOfSixLabel.text = formatText(total / 6)
+        updateFields(bill, tipPercentage: tipPercentage)
     }
 }
 
