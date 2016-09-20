@@ -186,11 +186,20 @@
                                     <action selector="onButtonClick:" destination="L2c-ks-PA5" eventType="valueChanged" id="18L-dJ-JH5"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FFs-aN-P1t">
+                                <rect key="frame" x="20" y="206" width="135" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.10593408414980353" green="0.48460573277921576" blue="0.97521269633507857" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Surprise me!"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="IJ9-pP-ZDg"/>
                     <connections>
+                        <outlet property="surpriseMeButton" destination="FFs-aN-P1t" id="s1k-Uf-EbD"/>
                         <outlet property="tipControl" destination="goI-6r-X8i" id="PZd-b5-3T5"/>
                     </connections>
                 </viewController>

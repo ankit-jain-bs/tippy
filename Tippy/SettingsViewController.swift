@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var surpriseMeButton: UIButton!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -28,7 +29,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        surpriseMeButton.layer.cornerRadius = 4
         // Do any additional setup after loading the view.
     }
 
